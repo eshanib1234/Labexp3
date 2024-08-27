@@ -1,0 +1,143 @@
+3.Write a JAVA program to get a long paragraph of text and search the given word in
+the text and prints out the number of times it has been occurred.
+
+Program:
+package eshani;
+import java.util.*;
+public class stringsearch {
+	 static int countOccurrences(String str, String word) {
+
+	        List<String> wordsList = Arrays.asList(str.split("\\s+"));
+
+	        return Collections.frequency(wordsList, word);
+
+	    }  
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 Scanner sc = new Scanner(System.in);
+		    System.out.println("Enter the paragraph:");
+            String str = sc.nextLine();
+            System.out.println("Enter the word to be searched:");
+            String word = sc.nextLine();
+            System.out.println("Occurrences: " + countOccurrences(str, word));
+	        System.out.println("URK23CS1157");
+
+	}
+
+}
+
+output:
+Enter the paragraph:
+The main feature of any word processor is the ability to manipulate text within a document, such as the ability to insert, cut and paste, and copy text.
+Enter the word to be searched:
+the
+Occurrences: 2
+URK23CS1157
+
+
+5.Write a JAVA program to get a long paragraph of text and find out all the vowels
+and replace it with special symbol a user inputted character, finally output the given
+text and modified text.
+
+Program:
+package eshani;
+import java.util.Scanner;
+public class vowelreplacement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a long paragraph of text:");
+        String originalText = scanner.nextLine();
+        System.out.println("Enter a character to replace vowels:");
+        char replacementChar = scanner.nextLine().charAt(0);
+        String modifiedText = replaceVowels(originalText, replacementChar);
+        System.out.println("\nOriginal Text:");
+        System.out.println(originalText);
+        System.out.println("\nModified Text (vowels replaced with '" + replacementChar + "'): ");
+        System.out.println(modifiedText);
+        System.out.println("URK23CS1157");
+         scanner.close();
+
+    }
+	private static String replaceVowels(String text, char replacementChar) {
+		char[] chars = text.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+        	if (isVowel(chars[i])) {
+            	chars[i] = replacementChar;
+                }
+            }
+        return new String(chars);
+        }
+	private static boolean isVowel(char c) {
+    	c = Character.toLowerCase(c);
+    	return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+
+	}
+
+}
+
+Output:
+Enter a long paragraph of text:
+The main feature of any word processor is the ability to manipulate text within a document, such as the ability to insert, cut and paste, and copy text.
+Enter a character to replace vowels:
+x
+
+Original Text:
+The main feature of any word processor is the ability to manipulate text within a document, such as the ability to insert, cut and paste, and copy text.
+
+Modified Text (vowels replaced with 'x'): 
+Thx mxxn fxxtxrx xf xny wxrd prxcxssxr xs thx xbxlxty tx mxnxpxlxtx txxt wxthxn x dxcxmxnt, sxch xs thx xbxlxty tx xnsxrt, cxt xnd pxstx, xnd cxpy txxt.
+URK23CS1157
+
+
+10.Write a program to count the number of occurrences of any two vowels in
+succession in a line of text. For example, in the sentence
+Sample Input: “Please read this application and give me gratuity”
+Sample Output: ea, ea, ui
+
+Program:
+package eshani;
+import java.util.Scanner;
+public class vowelsuccession {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+				Scanner sc=new Scanner(System.in);
+				System.out.println("Enter a line of text:");
+				String text = sc.nextLine();
+				String result = countVowelPairs(text);
+				System.out.println("Sample Output:");
+				System.out.println(result);
+				System.out.println("URK23CS1157");
+				sc.close();
+				}
+	            private static String countVowelPairs(String text) {
+			    	String vowels = "aeiou";
+			        String result = "";
+			        text = text.toLowerCase();
+			        for (int i = 0; i < text.length() - 1; i++) {
+			        	char currentChar = text.charAt(i);
+			            char nextChar = text.charAt(i + 1);
+			            if (vowels.indexOf(currentChar) != -1 && vowels.indexOf(nextChar) != -1) {
+			            	if (!result.isEmpty()) {
+			                	result += ", ";
+			                    }
+			                result += currentChar + "" + nextChar;
+			                }
+			            }
+			        return result;}
+			    }
+
+Output:
+Enter a line of text:
+The main feature of any word processor is the ability to manipulate text within a document, such as the ability to insert, cut and paste, and copy text.
+Sample Output:
+ai, ea
+URK23CS1157
+
+
+
+
+
